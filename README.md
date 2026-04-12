@@ -1,3 +1,15 @@
-# MemoTestManager
+# METOTEST
+# 📚 MEMOTEST ISTQB — Sites de révision gratuits
 
-Le contenu de ce site a été généré à partir du syllabus officiel à l'aide de l'IA, si vous constatez une erreur, contactez-moi : daphne.herve@gmail.com
+Sites de révision interactifs pour les certifications ISTQB, 
+développés en HTML/CSS/JS statique, sans dépendances externes.
+
+## Certifications disponibles
+- 📗 ISTQB Fondation FL v4.0
+- 📘 ISTQB Test Manager CTAL-TM v3.0
+
+## Contribuer
+Lire CONTRIBUTING.md
+
+## Licence
+CC BY-NC-SA 4.0 — usage éducatif uniquement, commercialisation interdite.
