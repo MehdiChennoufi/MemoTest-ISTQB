@@ -1,0 +1,648 @@
+{
+  "title": "ISTQB Foundation v4.0",
+  "shortName": "Foundation",
+  "fullName": "ISTQB® CTFL v4.0",
+  "description": "Maîtrisez les fondamentaux du test logiciel avec des fiches de cours structurées, des quiz interactifs et un glossaire complet.",
+  "bos": [],
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Fondamentaux des tests",
+      "duration": "180 min",
+      "sections": [
+        {
+          "num": "1.1",
+          "title": "Qu'est-ce que le test?",
+          "content": "Le test logiciel est un ensemble d'activités visant à découvrir les défauts et à évaluer la qualité des artefacts logiciels. Une idée fausse très répandue est que le test consiste uniquement à exécuter le logiciel : il comprend en réalité de nombreuses autres activités (planification, conception, analyse…) et doit être aligné sur le cycle de vie du développement logiciel.\n\nLe test peut être <strong>dynamique</strong> (implique l'exécution du logiciel) ou <strong>statique</strong> (revues, analyse statique, sans exécution). Il implique à la fois la <strong>vérification</strong> (conformité aux exigences spécifiées) et la <strong>validation</strong> (conformité aux besoins réels des utilisateurs).",
+          "keyPoints": [
+            "Le test évalue la qualité ET recherche les défauts",
+            "Test statique = revues + analyse statique (sans exécution)",
+            "Test dynamique = exécution du logiciel",
+            "Vérification ≠ Validation",
+            "Le test est une activité intellectuelle, pas seulement technique"
+          ],
+          "alert": "L'ISTQB distingue clairement test statique et test dynamique — un point souvent demandé à l'examen."
+        },
+        {
+          "num": "1.1.1",
+          "title": "Objectifs du test",
+          "content": "Les objectifs typiques du test comprennent : évaluer les produits d'activités (exigences, user stories, conceptions, code), provoquer des défaillances et trouver des défauts, assurer la couverture requise d'un objet de test, réduire le niveau de risque, vérifier si les exigences spécifiées ont été satisfaites, construire la confiance dans la qualité, et valider si l'objet de test fonctionne comme attendu.\n\nLes objectifs du test varient en fonction du contexte : le produit testé, le niveau de test, les risques, le cycle de vie choisi et le contexte métier.",
+          "keyPoints": [
+            "9 objectifs typiques à connaître",
+            "Les objectifs varient selon le contexte",
+            "Trouver des défauts ≠ prouver l'absence de défauts",
+            "Construire la confiance dans la qualité est un objectif à part entière"
+          ],
+          "alert": "Les objectifs du test sont contextuels : ce n'est pas toujours trouver des défauts !"
+        },
+        {
+          "num": "1.1.2",
+          "title": "Test et débogage",
+          "content": "Le test et le débogage sont des activités distinctes. Les tests peuvent déclencher des défaillances causées par des défauts. Lorsque le test dynamique déclenche une défaillance, le débogage consiste à : reproduire la défaillance, diagnostiquer (trouver la cause racine), corriger la cause.\n\nUn <strong>test de confirmation</strong> vérifie ensuite que le correctif a résolu le problème. Des <strong>tests de régression</strong> vérifient qu'aucune nouvelle défaillance n'a été introduite.",
+          "keyPoints": [
+            "Test ≠ Débogage (activités distinctes)",
+            "Débogage : reproduction → diagnostic → correction",
+            "Test de confirmation = vérifier que le défaut est corrigé",
+            "Test de régression = vérifier qu'aucun nouveau défaut n'a été introduit"
+          ],
+          "alert": "Le débogage est réalisé par les développeurs, pas nécessairement par les testeurs."
+        },
+        {
+          "num": "1.2",
+          "title": "Pourquoi est-il nécessaire de tester ?",
+          "content": "Le test, en tant que forme de contrôle de la qualité, aide à atteindre les objectifs convenus dans les limites du périmètre, du temps, de la qualité et du budget. Le test est un moyen efficace et peu coûteux de détecter des défauts. Ces défauts peuvent ensuite être éliminés par débogage, ce qui contribue indirectement à l'obtention d'objets de test de meilleure qualité.\n\nIl est important de distinguer le test (contrôle de la qualité, correctif, orienté produit) de l'assurance qualité (approche préventive, orientée processus). Les résultats de test sont utilisés par les deux approches.",
+          "keyPoints": [
+            "Test = contrôle qualité (correctif, orienté produit)",
+            "Assurance qualité = approche préventive (orientée processus)",
+            "Erreur → Défaut → Défaillance",
+            "Cause racine = raison fondamentale de l'apparition d'un problème",
+            "Le test peut être requis pour des raisons contractuelles ou réglementaires"
+          ],
+          "alert": "Test ≠ Assurance qualité : distinction fondamentale au niveau K2."
+        },
+        {
+          "num": "1.3",
+          "title": "Les 7 Principes du test",
+          "content": "Sept principes fondamentaux guident toutes les activités de test :\n\n<strong>1. Le test montre la présence, non l'absence de défauts.</strong> On ne peut jamais prouver qu'un logiciel est sans défaut.\n\n<strong>2. Le test exhaustif est impossible.</strong> On priorise grâce aux techniques de test et aux risques.\n\n<strong>3. Tester tôt économise du temps et de l'argent.</strong> (Principe du shift-left)\n\n<strong>4. Regroupement des défauts.</strong> Un petit nombre de composants concentre la plupart des défauts (principe de Pareto).\n\n<strong>5. Usure des tests.</strong> Les mêmes tests répétés deviennent inefficaces.\n\n<strong>6. Le test dépend du contexte.</strong> Il n'existe pas d'approche universelle.\n\n<strong>7. L'illusion de l'absence de défaut.</strong> Un logiciel sans défaut connu ne répond pas nécessairement aux besoins des utilisateurs.",
+          "keyPoints": [
+            "Principe 1 : on prouve la présence, jamais l'absence",
+            "Principe 2 : exhaustivité impossible → prioriser",
+            "Principe 3 : shift-left, tester tôt",
+            "Principe 4 : loi de Pareto (20/80)",
+            "Principe 5 : renouveler et varier les tests",
+            "Principe 6 : adapter au contexte",
+            "Principe 7 : validation nécessaire en plus de la vérification"
+          ],
+          "alert": "Les 7 principes sont examinables à l'examen — mémorisez-les et sachez les appliquer (K2)."
+        },
+        {
+          "num": "1.4",
+          "title": "Activités de test, testware et rôles",
+          "content": "Un processus de test comprend : <strong>planification → pilotage/contrôle → analyse → conception → implémentation → exécution → clôture</strong>.\n\nLe <strong>testware</strong> regroupe tous les produits d'activités issus du processus de test : plans de test, cas de test, procédures de test, données de test, logs de test, rapports de défaut, rapports de clôture…\n\nDeux rôles principaux : le <strong>test manager</strong> (planification, pilotage, clôture) et le <strong>testeur</strong> (analyse, conception, implémentation, exécution).\n\nLa <strong>traçabilité</strong> entre la base de test et le testware permet d'évaluer la couverture et de mesurer l'atteinte des objectifs.",
+          "keyPoints": [
+            "7 activités du processus de test à connaître",
+            "Testware = tout ce qui est produit par le test",
+            "Test manager vs Testeur : rôles distincts",
+            "Traçabilité = lien entre base de test et testware",
+            "Les activités peuvent être itératives ou parallèles"
+          ],
+          "alert": "La traçabilité est un concept clé — elle permet d'évaluer la couverture et d'auditer le processus."
+        },
+        {
+          "num": "1.5",
+          "title": "Compétences et bonnes pratiques",
+          "content": "Les bons testeurs doivent posséder des compétences génériques : connaissance en test, rigueur, curiosité, bonne communication, réflexion analytique, esprit critique, créativité, connaissances techniques et du domaine métier.\n\nL'<strong>approche équipe intégrée</strong> (issue de la programmation extrême) prône la responsabilité collective de la qualité. Tout membre de l'équipe peut effectuer n'importe quelle tâche.\n\nL'<strong>indépendance du test</strong> rend le testeur plus efficace (biais cognitifs différents), mais présente des inconvénients (isolement, perte de responsabilité des développeurs).",
+          "keyPoints": [
+            "6 catégories de compétences génériques",
+            "Équipe intégrée = responsabilité partagée de la qualité",
+            "Indépendance : 4 niveaux (auteur, pairs, hors équipe, externe)",
+            "Indépendance ≠ substitut à la proximité",
+            "Communication constructive est clé pour le testeur"
+          ],
+          "alert": "L'indépendance du test a des avantages ET des inconvénients — attendez-vous à une question sur les deux."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Tester tout au long du cycle de vie",
+      "duration": "130 min",
+      "sections": [
+        {
+          "num": "2.1",
+          "title": "Le test dans le contexte d'un SDLC",
+          "content": "Le test doit être adapté au cycle de vie du développement logiciel (SDLC) choisi. Ce choix impacte : le périmètre et le calendrier des activités de test, le niveau de détail de la documentation, les techniques et l'approche de test, le degré d'automatisation, et les rôles des testeurs.\n\nApproches pilotées par les tests : <strong>TDD</strong> (tests avant le code), <strong>ATDD</strong> (tests dérivés des critères d'acceptation), <strong>BDD</strong> (comportement exprimé en langage naturel Given/When/Then).\n\n<strong>DevOps</strong> favorise l'approche shift-left, les tests automatisés en CI/CD, et le feedback rapide. L'approche <strong>shift-left</strong> consiste à tester plus tôt dans le SDLC.",
+          "keyPoints": [
+            "SDLC séquentiel vs itératif vs agile → impacts différents",
+            "TDD : test avant code, BDD : Given/When/Then",
+            "DevOps : CI/CD, feedback rapide, tests automatisés",
+            "Shift-left : tester plus tôt (mais pas négliger la suite)",
+            "Rétrospectives : amélioration continue du processus de test"
+          ],
+          "alert": "TDD, ATDD et BDD sont des approches distinctes mais complémentaires — sachez les différencier."
+        },
+        {
+          "num": "2.2",
+          "title": "Niveaux et types de test",
+          "content": "<strong>5 niveaux de test :</strong>\n• Tests de composants (unitaires) — développeurs\n• Tests d'intégration de composants — interfaces entre composants\n• Tests système — comportement global du système\n• Tests d'intégration du système — interfaces avec systèmes externes\n• Tests d'acceptation — validation par les utilisateurs (UAT, alpha, bêta)\n\n<strong>4 types de test :</strong>\n• Test fonctionnel — ce que le système doit faire\n• Test non fonctionnel — comment le système se comporte (performance, sécurité, utilisabilité…)\n• Test boîte noire — basé sur les spécifications\n• Test boîte blanche — basé sur la structure interne\n\nLes tests de <strong>confirmation</strong> vérifient qu'un défaut est corrigé. Les tests de <strong>régression</strong> vérifient qu'aucune nouvelle défaillance n'est apparue.",
+          "keyPoints": [
+            "5 niveaux de test : composant → acceptation",
+            "4 types : fonctionnel, non-fonctionnel, boîte noire, boîte blanche",
+            "Test de confirmation ≠ test de régression",
+            "ISO/IEC 25010 : 7 caractéristiques qualité non-fonctionnelles",
+            "Tous les types peuvent s'appliquer à tous les niveaux"
+          ],
+          "alert": "Les 5 niveaux de test et les 4 types sont fondamentaux — maîtrisez leurs objectifs et différences."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Test statique",
+      "duration": "80 min",
+      "sections": [
+        {
+          "num": "3.1",
+          "title": "Bases du test statique",
+          "content": "Le test statique ne nécessite pas l'exécution du logiciel. Il comprend les <strong>revues</strong> (examen manuel) et l'<strong>analyse statique</strong> (outils). Il peut s'appliquer à presque tous les produits d'activités : exigences, code source, plans de test, cas de test, contrats, modèles...\n\nAvantages : détection précoce, coût réduit, identification de défauts impossibles à trouver dynamiquement (code inaccessible, ambiguïtés dans les exigences).\n\nDifférences avec le test dynamique : le test statique constate directement les défauts (pas de défaillance), peut s'appliquer à des produits non exécutables, permet de mesurer la maintenabilité.",
+          "keyPoints": [
+            "Statique = pas d'exécution (revues + analyse statique)",
+            "Applicable à : code, exigences, user stories, modèles…",
+            "Détecte : ambiguïtés, code inaccessible, violations de standards",
+            "Différence clé : constate les défauts (vs dynamique qui provoque des défaillances)",
+            "Feedback précoce des parties prenantes = évite les malentendus"
+          ],
+          "alert": "Le test statique peut détecter des défauts impossibles à trouver par test dynamique — point clé !"
+        },
+        {
+          "num": "3.2",
+          "title": "Processus de revue",
+          "content": "Le processus de revue comprend : planification, lancement, revue individuelle, communication/analyse, correction et rapport.\n\n<strong>4 types de revues :</strong>\n• Revue informelle — pas de processus défini\n• Relecture technique (walkthrough) — menée par l'auteur\n• Revue technique — par des réviseurs qualifiés, avec modérateur\n• Inspection — la plus formelle, collecte de métriques, auteur ≠ réviseur/scribe\n\n<strong>Rôles :</strong> manager, auteur, modérateur, scribe, réviseur, responsable de la revue.",
+          "keyPoints": [
+            "5 activités du processus de revue",
+            "4 types : informelle, walkthrough, technique, inspection",
+            "Inspection = plus formelle, métriques, auteur ne peut pas être réviseur",
+            "6 rôles dans une revue",
+            "Facteurs de succès : objectifs clairs, petits groupes, temps de préparation"
+          ],
+          "alert": "L'inspection est le type le plus formel — lors d'une inspection, l'auteur ne peut pas être réviseur ni scribe."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Analyse et conception des tests",
+      "duration": "390 min",
+      "sections": [
+        {
+          "num": "4.2",
+          "title": "Techniques boîte noire",
+          "content": "<strong>Partitions d'équivalence :</strong> diviser les données en partitions (valides et invalides) — un seul test par partition suffit. Couverture = (partitions testées / total partitions) × 100.\n\n<strong>Analyse des valeurs limites :</strong> tester aux frontières des partitions ordonnées. Technique à 2 valeurs (limite + voisine adjacente) ou à 3 valeurs (limite + 2 voisines). Plus rigoureuse = 3 valeurs.\n\n<strong>Test par tables de décisions :</strong> tester les combinaisons de conditions. 100% = toutes les colonnes réalisables testées.\n\n<strong>Test de transition d'état :</strong> modéliser les états et transitions. Critères : tous les états, toutes les transitions valides (0-switch), toutes les transitions (valides + invalides).",
+          "keyPoints": [
+            "Partitions : valides ET invalides à tester",
+            "AVL 2 valeurs vs 3 valeurs (3 valeurs > 2 valeurs en rigueur)",
+            "Tables de décision : couvrir toutes les combinaisons réalisables",
+            "Transition d'état : 3 critères de couverture (états, transitions valides, toutes transitions)",
+            "Boîte noire = basé sur les spécifications, indépendant de l'implémentation"
+          ],
+          "alert": "K3 : vous devez savoir APPLIQUER ces techniques pour dériver des cas de test à l'examen."
+        },
+        {
+          "num": "4.3",
+          "title": "Techniques boîte blanche",
+          "content": "<strong>Test des instructions :</strong> exercer toutes les instructions exécutables. Couverture = (instructions testées / total instructions) × 100. 100% ne garantit pas de tester toute la logique de décision.\n\n<strong>Test des branches :</strong> exercer toutes les branches (inconditionnelles et conditionnelles : vrai/faux). Couverture des branches ⊃ couverture des instructions (100% branches → 100% instructions, pas l'inverse).\n\nLa valeur des tests boîte blanche : l'implémentation entière est prise en compte, même si la spécification est vague ou incomplète. Faiblesse : ne détecte pas les omissions de fonctionnalités.",
+          "keyPoints": [
+            "Couverture des branches ⊃ couverture des instructions",
+            "100% branches implique 100% instructions (mais pas l'inverse)",
+            "Boîte blanche ≠ détecte les fonctionnalités manquantes",
+            "Utile même avec spécifications vagues/incomplètes",
+            "Peut être utilisé en test statique (exécution à blanc)"
+          ],
+          "alert": "La couverture des branches englobe la couverture des instructions — question fréquente à l'examen !"
+        },
+        {
+          "num": "4.4 & 4.5",
+          "title": "Techniques basées sur l'expérience & collaboration",
+          "content": "<strong>Estimation d'erreurs :</strong> anticiper les défauts sur la base de l'expérience (défaillances passées, types d'erreurs courants). Approche méthodique : les attaques de fautes.\n\n<strong>Test exploratoire :</strong> conception, exécution et évaluation simultanées. Structuré par sessions avec chartes de test. Utile quand les spécifications sont insuffisantes.\n\n<strong>Test basé sur des checklists :</strong> tester à partir d'une liste d'éléments vérifiables. Moins répétable, mais potentiellement plus grande couverture.\n\n<strong>Approches collaboratives :</strong> User Stories (3C : Carte, Conversation, Confirmation), Critères d'acceptation (format scénario Given/When/Then ou règles), ATDD (tests créés avant l'implémentation).",
+          "keyPoints": [
+            "Estimation d'erreurs = basée sur l'expérience passée",
+            "Test exploratoire = conception + exécution simultanées",
+            "User Story : 3C + critères INVEST",
+            "Critères d'acceptation = conditions de test",
+            "ATDD : tests d'acceptation avant l'implémentation"
+          ],
+          "alert": "ATDD crée les tests AVANT d'implémenter la user story — c'est une approche shift-left."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Gestion des activités de test",
+      "duration": "335 min",
+      "sections": [
+        {
+          "num": "5.1",
+          "title": "Planification des tests",
+          "content": "Un <strong>plan de test</strong> décrit : contexte, hypothèses, parties prenantes, communication, référentiel des risques, approche de test, budget et calendrier.\n\n<strong>Critères d'entrée</strong> : préconditions pour démarrer une activité (disponibilité des ressources, du matériel, qualité initiale).\n<strong>Critères de sortie</strong> : ce qui doit être réalisé pour déclarer une activité achevée (couverture atteinte, défauts signalés…). En Agile : Definition of Done (sortie) et Definition of Ready (entrée).\n\n<strong>Techniques d'estimation :</strong> basée sur des ratios, extrapolation, Delphi large bande (planning poker), estimation en 3 points (E = (a+4m+b)/6).\n\n<strong>Pyramide des tests :</strong> plus la couche est basse = tests plus rapides, isolés, nombreux. Plus haut = tests lents, bout en bout, peu nombreux.",
+          "keyPoints": [
+            "Plan de test : 8 éléments typiques",
+            "Critères d'entrée vs critères de sortie",
+            "Definition of Done = critères de sortie Agile",
+            "4 techniques d'estimation dont planning poker",
+            "Formule 3 points : E = (a+4m+b)/6",
+            "Pyramide des tests : 3 couches"
+          ],
+          "alert": "La formule d'estimation en 3 points est examinable : E = (a+4m+b)/6, SD = (b-a)/6."
+        },
+        {
+          "num": "5.2",
+          "title": "Gestion des risques",
+          "content": "<strong>Risque = probabilité × impact.</strong>\n\n<strong>Risques projet</strong> : organisationnels, humains, techniques, fournisseurs (impactent calendrier/budget/périmètre).\n<strong>Risques produit</strong> : liés aux caractéristiques qualité du produit (fonctionnalités manquantes, vulnérabilités, mauvaise performance…).\n\nL'<strong>analyse des risques produit</strong> comprend : identification des risques + évaluation (probabilité, impact, niveau). Les résultats influencent : périmètre, niveaux de test, techniques, effort, priorités.\n\nLe <strong>contrôle des risques</strong> comprend : atténuation (actions correctives) et surveillance (efficacité des mesures).",
+          "keyPoints": [
+            "Risque = probabilité × impact",
+            "Risques projet ≠ risques produit",
+            "Analyse = identification + évaluation",
+            "Contrôle = atténuation + surveillance",
+            "Tests basés sur les risques : prioriser selon le niveau de risque"
+          ],
+          "alert": "Risques projet (délais, budget) vs risques produit (qualité) : distinction clé à l'examen."
+        },
+        {
+          "num": "5.3 – 5.5",
+          "title": "Pilotage, configuration, défauts",
+          "content": "<strong>Métriques de test :</strong> avancement projet, avancement tests, qualité produit, défauts, risques, couverture, coûts.\n\n<strong>Rapports d'avancement</strong> : générés régulièrement, pour informer les parties prenantes.\n<strong>Rapports de clôture</strong> : résument une étape de test (objectifs, écarts, métriques, leçons apprises).\n\n<strong>Gestion de configuration :</strong> identifier, contrôler et tracer les éléments de configuration (testware). Garantit la cohérence et la traçabilité.\n\n<strong>Rapport de défaut :</strong> contient : identifiant unique, titre, date, objet de test, contexte, étapes de reproduction, résultats attendus/réels, sévérité, priorité, statut, références.",
+          "keyPoints": [
+            "5 catégories de métriques de test",
+            "Rapport d'avancement vs rapport de clôture",
+            "Gestion de configuration = cohérence + traçabilité",
+            "Un rapport de défaut a un identifiant unique et un statut",
+            "Sévérité ≠ Priorité"
+          ],
+          "alert": "Sévérité (impact du défaut) ≠ Priorité (urgence de correction) — distinction importante !"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Outils de test",
+      "duration": "20 min",
+      "sections": [
+        {
+          "num": "6.1 & 6.2",
+          "title": "Outils et automatisation",
+          "content": "Les outils de test soutiennent : la gestion (SDLC, exigences, défauts), le test statique, la conception et implémentation des tests, l'exécution et la couverture, les tests non fonctionnels, DevOps (CI/CD), la collaboration, la scalabilité.\n\n<strong>Avantages de l'automatisation :</strong> gain de temps, réduction des erreurs humaines, évaluation objective de la couverture, accès facilité aux métriques, réduction des délais, plus de temps pour les tests créatifs.\n\n<strong>Risques :</strong> attentes irréalistes, estimations inexactes, outil mal adapté, dépendance excessive, abandon du fournisseur, incompatibilité, non-conformité réglementaire.\n\nL'acquisition d'un outil ne garantit pas le succès — il faut prévoir introduction, maintenance et formation.",
+          "keyPoints": [
+            "8 catégories d'outils de test",
+            "6 avantages de l'automatisation",
+            "8 risques de l'automatisation",
+            "Outil ≠ garantie de succès",
+            "Tests manuels toujours nécessaires (point de vue utilisateur)"
+          ],
+          "alert": "L'automatisation a des avantages ET des risques — attendez-vous à des questions sur les deux côtés."
+        }
+      ]
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Laquelle des affirmations suivantes décrit le MIEUX le test logiciel ?",
+      "opts": [
+        "Le test consiste uniquement à exécuter le logiciel et à vérifier les résultats.",
+        "Le test est un ensemble d'activités visant à découvrir les défauts et à évaluer la qualité des artefacts logiciels.",
+        "Le test se concentre exclusivement sur la vérification des exigences spécifiées.",
+        "Le test est une activité uniquement réalisée après le développement."
+      ],
+      "answer": 1,
+      "explanation": "Le test est un ensemble d'activités visant à découvrir les défauts ET évaluer la qualité. Il inclut le test statique et dynamique, et doit être intégré à tout le cycle de développement.",
+      "tip": "Ne confondez pas 'test' avec 'exécution des tests' — c'est une distinction clé du syllabus."
+    },
+    {
+      "q": "Quelle est la principale différence entre la VÉRIFICATION et la VALIDATION ?",
+      "opts": [
+        "La vérification est réalisée après la validation.",
+        "La vérification contrôle la conformité aux exigences spécifiées ; la validation contrôle la conformité aux besoins réels des utilisateurs.",
+        "La validation est uniquement réalisée en test dynamique.",
+        "La vérification et la validation sont synonymes dans le contexte ISTQB."
+      ],
+      "answer": 1,
+      "explanation": "Vérification = conformité aux exigences spécifiées ('avons-nous construit le produit correctement ?'). Validation = conformité aux besoins réels ('avons-nous construit le bon produit ?').",
+      "tip": "V&V : Vérification → spécifications, Validation → besoins utilisateurs réels."
+    },
+    {
+      "q": "Selon le principe 4 des 7 principes du test, quel phénomène est connu comme le 'regroupement des défauts' ?",
+      "opts": [
+        "Les défauts apparaissent uniformément dans tous les composants du système.",
+        "Un petit nombre de composants concentre la plupart des défauts découverts.",
+        "Les défauts se regroupent toujours dans les interfaces entre composants.",
+        "Les défauts se regroupent uniquement dans le code nouveau, jamais dans le code existant."
+      ],
+      "answer": 1,
+      "explanation": "Le principe 4 illustre le principe de Pareto : un petit nombre de composants (environ 20%) contient la plupart des défauts (environ 80%). Cela guide le test basé sur les risques.",
+      "tip": "Le regroupement des défauts est lié au principe de Pareto — utilisé dans le test basé sur les risques."
+    },
+    {
+      "q": "Quelle est la PRINCIPALE différence entre le test statique et le test dynamique ?",
+      "opts": [
+        "Le test statique est plus coûteux que le test dynamique.",
+        "Le test statique peut uniquement être réalisé par des outils automatisés.",
+        "Le test statique ne nécessite pas l'exécution du logiciel, contrairement au test dynamique.",
+        "Le test dynamique s'applique uniquement aux tests de systèmes."
+      ],
+      "answer": 2,
+      "explanation": "Le test statique (revues, analyse statique) évalue les produits d'activités sans exécuter le logiciel. Le test dynamique implique l'exécution du logiciel testé.",
+      "tip": "Statique = sans exécution. Dynamique = avec exécution. Simple mais fondamental."
+    },
+    {
+      "q": "Dans le cadre de l'ATDD (Acceptance Test Driven Development), quand les cas de test sont-ils créés ?",
+      "opts": [
+        "Après l'implémentation complète de la user story.",
+        "Pendant la phase de recette utilisateur uniquement.",
+        "Avant l'implémentation de la user story.",
+        "Simultanément à l'écriture du code de production."
+      ],
+      "answer": 2,
+      "explanation": "L'ATDD est une approche shift-left : les cas de test sont créés AVANT d'implémenter la user story, à partir des critères d'acceptation, par des membres de l'équipe aux perspectives variées.",
+      "tip": "ATDD = tests créés AVANT le code. C'est une approche pilotée par les tests d'acceptation."
+    },
+    {
+      "q": "Quelle affirmation sur la couverture des branches est CORRECTE ?",
+      "opts": [
+        "La couverture des branches est un sous-ensemble de la couverture des instructions.",
+        "100% de couverture des branches garantit 100% de couverture des instructions.",
+        "100% de couverture des instructions garantit 100% de couverture des branches.",
+        "La couverture des branches et la couverture des instructions sont équivalentes."
+      ],
+      "answer": 1,
+      "explanation": "La couverture des branches englobe la couverture des instructions. Atteindre 100% de couverture des branches implique nécessairement 100% de couverture des instructions — mais pas l'inverse.",
+      "tip": "Branches ⊃ Instructions. Si vous couvrez toutes les branches, vous couvrez toutes les instructions."
+    },
+    {
+      "q": "En analyse des valeurs limites (AVL) à 3 valeurs, combien d'éléments de couverture sont définis par limite ?",
+      "opts": [
+        "1 élément : la valeur limite uniquement",
+        "2 éléments : la valeur limite et sa voisine dans la partition adjacente",
+        "3 éléments : la valeur limite et ses deux voisines",
+        "4 éléments : la valeur limite, ses deux voisines et la valeur médiane"
+      ],
+      "answer": 2,
+      "explanation": "Dans la technique à 3 valeurs, chaque valeur limite génère 3 éléments de couverture : la valeur limite elle-même et ses deux voisines (une dans chaque partition adjacente). C'est plus rigoureux que la technique à 2 valeurs.",
+      "tip": "AVL 3 valeurs = limite + 2 voisines. Plus rigoureux car détecte plus de défauts."
+    },
+    {
+      "q": "Lequel des éléments suivants est un RISQUE PROJET (par opposition à un risque produit) ?",
+      "opts": [
+        "Une fonctionnalité critique manquante dans l'application",
+        "Une vulnérabilité de sécurité dans le code",
+        "Un retard dans la livraison des produits d'activités par l'équipe",
+        "Un temps de réponse inadéquat du système"
+      ],
+      "answer": 2,
+      "explanation": "Les risques projet sont liés à la gestion et au contrôle du projet (délais, budget, ressources humaines, fournisseurs). Les risques produit sont liés aux caractéristiques qualité du logiciel.",
+      "tip": "Risque projet = gestion/contrôle (délais, budget). Risque produit = qualité du logiciel."
+    },
+    {
+      "q": "Selon la PYRAMIDE des tests, quelle caractéristique correspond aux tests situés dans la COUCHE INFÉRIEURE ?",
+      "opts": [
+        "Tests lents, peu nombreux, de bout en bout",
+        "Tests rapides, isolés, en grand nombre, couvrant de petites fonctionnalités",
+        "Tests manuels exclusivement, réalisés par les utilisateurs",
+        "Tests non-fonctionnels de performance et de sécurité"
+      ],
+      "answer": 1,
+      "explanation": "La couche inférieure de la pyramide (tests unitaires/composants) est caractérisée par des tests petits, isolés, rapides et nombreux, chacun vérifiant une petite unité de fonctionnalité.",
+      "tip": "Pyramide : bas = rapides, isolés, nombreux. Haut = lents, E2E, peu nombreux."
+    },
+    {
+      "q": "Lors d'une INSPECTION (le type de revue le plus formel), quelle contrainte s'applique au rôle de l'auteur ?",
+      "opts": [
+        "L'auteur doit obligatoirement présenter le document lors de la réunion.",
+        "L'auteur ne peut pas jouer le rôle de réviseur ni de scribe.",
+        "L'auteur est responsable de la modération de la réunion.",
+        "L'auteur est exclu de la réunion de revue pour assurer l'objectivité."
+      ],
+      "answer": 1,
+      "explanation": "Lors des inspections, l'auteur ne peut pas jouer le rôle de réviseur ou de scribe, afin d'assurer l'objectivité du processus. Les inspections sont le type de revue le plus formel avec collecte de métriques.",
+      "tip": "Inspection = plus formelle. Auteur ≠ réviseur/scribe. Métriques collectées."
+    }
+  ],
+  "glossaryData": {
+    "A": [
+      {
+        "term": "Analyse de test",
+        "def": "Activité consistant à analyser la base de test pour identifier les caractéristiques testables et définir les conditions de test, les risques et niveaux de risque associés."
+      },
+      {
+        "term": "Analyse des valeurs limites (AVL)",
+        "def": "Technique de test boîte noire basée sur l'exercice des limites des partitions d'équivalence ordonnées. Existe en version 2 valeurs et 3 valeurs."
+      },
+      {
+        "term": "Analyse statique",
+        "def": "Examen des produits d'activités (code, documents) sans exécution du logiciel, à l'aide d'outils, pour identifier des problèmes."
+      },
+      {
+        "term": "Assurance qualité (AQ)",
+        "def": "Approche préventive axée sur les processus, qui se concentre sur la mise en œuvre et l'amélioration des processus. S'applique à la fois aux processus de développement et de test."
+      },
+      {
+        "term": "ATDD",
+        "def": "Acceptance Test Driven Development : approche pilotée par les tests d'acceptation où les cas de test sont créés avant l'implémentation, à partir des critères d'acceptation."
+      }
+    ],
+    "B": [
+      {
+        "term": "Base de test",
+        "def": "Ensemble des produits d'activités constituant la base de l'analyse et de la conception des tests (exigences, modèles, code, user stories...)."
+      },
+      {
+        "term": "BDD",
+        "def": "Behavior Driven Development : approche de développement pilotée par le comportement. Utilise le format Given/When/Then pour exprimer les cas de test en langage naturel."
+      }
+    ],
+    "C": [
+      {
+        "term": "Cas de test",
+        "def": "Ensemble de préconditions, entrées, actions, résultats attendus et postconditions, développé sur la base des conditions de test."
+      },
+      {
+        "term": "Cause racine",
+        "def": "Raison fondamentale de l'apparition d'un problème. Identifiée par l'analyse des causes racines pour éviter que des défauts similaires se reproduisent."
+      },
+      {
+        "term": "Clôture des tests",
+        "def": "Activités réalisées aux jalons du projet pour consolider l'expérience, archiver le testware, analyser les leçons apprises et produire le rapport de clôture."
+      },
+      {
+        "term": "Condition de test",
+        "def": "Aspect d'un composant ou système identifiable comme pouvant être vérifié par un ou plusieurs cas de test."
+      },
+      {
+        "term": "Contrôle des tests",
+        "def": "Activité consistant à prendre les mesures correctives nécessaires pour atteindre les objectifs du test sur la base des informations de pilotage."
+      },
+      {
+        "term": "Couverture",
+        "def": "Degré auquel un critère de couverture a été satisfait par un ensemble de cas de test. Exprimée en pourcentage."
+      },
+      {
+        "term": "Couverture des branches",
+        "def": "Pourcentage de branches exercées par les cas de test. Une couverture des branches à 100% garantit une couverture des instructions à 100% (mais pas l'inverse)."
+      },
+      {
+        "term": "Couverture des instructions",
+        "def": "Pourcentage d'instructions exécutables exercées par les cas de test. Sous-ensemble de la couverture des branches."
+      },
+      {
+        "term": "Critères d'acceptation",
+        "def": "Conditions qu'une implémentation de user story doit satisfaire pour être acceptée par les parties prenantes. Résultat de la 'Conversation' dans les 3C."
+      }
+    ],
+    "D": [
+      {
+        "term": "Débogage",
+        "def": "Activité consistant à trouver, analyser et éliminer les causes d'une défaillance. Activité distincte du test, généralement réalisée par les développeurs."
+      },
+      {
+        "term": "Défaillance",
+        "def": "Manifestation d'un défaut lors de l'exécution — le logiciel ne fait pas ce qu'il devrait faire."
+      },
+      {
+        "term": "Défaut",
+        "def": "Imperfection dans un produit d'activités (bug, bogue). Résulte d'une erreur humaine. Peut causer une défaillance lors de l'exécution."
+      },
+      {
+        "term": "Definition of Done",
+        "def": "En Agile, critères de sortie objectifs de l'équipe pour un produit livrable."
+      },
+      {
+        "term": "Definition of Ready",
+        "def": "En Agile, critères d'entrée qu'une user story doit remplir pour démarrer le développement/test."
+      },
+      {
+        "term": "DevOps",
+        "def": "Approche organisationnelle visant à créer une synergie entre développement et exploitation pour livrer plus rapidement du code de haute qualité via un pipeline CI/CD."
+      }
+    ],
+    "E": [
+      {
+        "term": "Erreur",
+        "def": "Action humaine produisant un résultat incorrect. Peut mener à un défaut dans un produit d'activités."
+      },
+      {
+        "term": "Estimation d'erreurs",
+        "def": "Technique de test basée sur l'expérience permettant d'anticiper l'apparition d'erreurs, défauts et défaillances selon les connaissances du testeur."
+      }
+    ],
+    "G": [
+      {
+        "term": "Gestion des défauts",
+        "def": "Processus comprenant un workflow de traitement des anomalies (de la découverte à la clôture) et des règles de classification."
+      }
+    ],
+    "I": [
+      {
+        "term": "Inspection",
+        "def": "Type de revue le plus formel. Suit le processus générique complet, collecte des métriques. L'auteur ne peut pas être réviseur ni scribe."
+      }
+    ],
+    "N": [
+      {
+        "term": "Niveau de test",
+        "def": "Groupe d'activités de test organisées et gérées ensemble, correspondant à un stade de développement donné (composant, intégration, système, acceptation)."
+      }
+    ],
+    "O": [
+      {
+        "term": "Objet de test",
+        "def": "Composant ou système faisant l'objet du test."
+      },
+      {
+        "term": "Objectif de test",
+        "def": "Raison ou but d'un test. Peut inclure : trouver des défauts, valider, vérifier, évaluer la qualité."
+      }
+    ],
+    "P": [
+      {
+        "term": "Partition d'équivalence",
+        "def": "Technique boîte noire divisant les données en partitions dans lesquelles tous les éléments sont censés être traités de la même manière. Un seul test par partition suffit."
+      },
+      {
+        "term": "Pilotage des tests",
+        "def": "Collecte d'informations sur les tests pour évaluer l'avancement et vérifier si les critères de sortie sont satisfaits."
+      },
+      {
+        "term": "Planification des tests",
+        "def": "Activité consistant à définir les objectifs du test et à sélectionner une approche pour les atteindre. Produit : le plan de test."
+      },
+      {
+        "term": "Processus de test",
+        "def": "Ensemble d'activités de test organisées pour atteindre les objectifs de test."
+      }
+    ],
+    "R": [
+      {
+        "term": "Rapport de défaut",
+        "def": "Document contenant : identifiant unique, titre, date, objet de test, contexte, étapes de reproduction, résultats attendus/réels, sévérité, priorité, statut."
+      },
+      {
+        "term": "Revue",
+        "def": "Évaluation d'un produit d'activités par des réviseurs. Types : informelle, walkthrough, technique, inspection."
+      },
+      {
+        "term": "Risque produit",
+        "def": "Risque lié aux caractéristiques qualité du produit (fonctionnalités manquantes, vulnérabilités, performance insuffisante...)."
+      },
+      {
+        "term": "Risque projet",
+        "def": "Risque lié à la gestion et au contrôle du projet (délais, budget, ressources humaines, fournisseurs)."
+      }
+    ],
+    "S": [
+      {
+        "term": "Shift-left",
+        "def": "Approche consistant à effectuer le test plus tôt dans le cycle de vie du développement logiciel, pour détecter et corriger les défauts le plus tôt possible."
+      }
+    ],
+    "T": [
+      {
+        "term": "TDD",
+        "def": "Test Driven Development : approche où les tests unitaires sont écrits avant le code de production. Le code est ensuite écrit pour satisfaire les tests, puis refactorisé."
+      },
+      {
+        "term": "Test basé sur des checklists",
+        "def": "Technique de test basée sur l'expérience où le testeur conçoit et exécute des tests à partir d'une liste d'éléments vérifiables."
+      },
+      {
+        "term": "Test de confirmation",
+        "def": "Test vérifiant qu'un défaut original a été corrigé avec succès."
+      },
+      {
+        "term": "Test de maintenance",
+        "def": "Test réalisé sur un système en production suite à des modifications, mises à jour ou retraits."
+      },
+      {
+        "term": "Test de régression",
+        "def": "Test vérifiant qu'aucune conséquence négative n'a été causée par une modification (correction d'un défaut ou nouvelle fonctionnalité)."
+      },
+      {
+        "term": "Test dynamique",
+        "def": "Test impliquant l'exécution du composant ou système à tester."
+      },
+      {
+        "term": "Test exploratoire",
+        "def": "Technique expérimentée où les tests sont simultanément conçus, exécutés et évalués. Structuré par sessions avec chartes de test."
+      },
+      {
+        "term": "Test par tables de décisions",
+        "def": "Technique boîte noire testant les combinaisons de conditions aboutissant à des résultats différents."
+      },
+      {
+        "term": "Test statique",
+        "def": "Test ne nécessitant pas l'exécution du logiciel. Comprend les revues et l'analyse statique."
+      },
+      {
+        "term": "Testware",
+        "def": "Ensemble des produits d'activités créés pendant le processus de test : plans, cas de test, données de test, scripts, rapports..."
+      },
+      {
+        "term": "Type de test",
+        "def": "Groupe d'activités de test lié à des caractéristiques qualité spécifiques : fonctionnel, non-fonctionnel, boîte noire, boîte blanche."
+      }
+    ],
+    "U": [
+      {
+        "term": "User Story",
+        "def": "Représentation d'une fonctionnalité utile à l'utilisateur. Composée des 3C (Carte, Conversation, Confirmation). Format : 'En tant que [rôle], je veux [objectif] afin de [valeur]'."
+      }
+    ],
+    "V": [
+      {
+        "term": "Validation",
+        "def": "Contrôle de la conformité du système aux besoins réels des utilisateurs dans l'environnement opérationnel ('avons-nous construit le bon produit ?')."
+      },
+      {
+        "term": "Vérification",
+        "def": "Contrôle de la conformité du système aux exigences spécifiées ('avons-nous construit le produit correctement ?')."
+      }
+    ]
+  }
+}

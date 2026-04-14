@@ -1,0 +1,16 @@
+[
+  {
+    "id": "manager",
+    "title": "ISTQB® Test Manager",
+    "icon": "shield_person",
+    "description": "Gestion avancée des tests et des équipes.",
+    "path": "data/manager.json"
+  },
+  {
+    "id": "foundation",
+    "title": "ISTQB® Foundation",
+    "icon": "menu_book",
+    "description": "Les bases fondamentales du test logiciel.",
+    "path": "data/foundation.json"
+  }
+]

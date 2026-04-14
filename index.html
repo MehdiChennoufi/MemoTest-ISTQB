@@ -1,249 +1,706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" class="light">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MEMOTEST — ISTQB Test Manager Avancé v3.0</title>
-<link rel="icon" href="./favicon-48.png">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-brand">MEMOTEST <span class="nav-badge">Test Manager</span></div>
-    <div class="nav-links">
-      <a href="#" class="active" onclick="navigate('home',this)">Accueil</a>
-      <a href="#" onclick="navigate('chapters',this)">Chapitres</a>
-      <a href="#" onclick="navigate('quiz',this)">Quiz</a>
-      <a href="#" onclick="navigate('glossary',this)">Glossaire</a>
-    </div>
-  </div>
-</nav>
-
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="sidebar-heading">
-    <h2>Test Manager</h2>
-    <p>ISTQB® CTAL-TM v3.0</p>
-  </div>
-  <div class="sidebar-link active" onclick="navigate('home')">
-    <span class="material-symbols-outlined">home</span>Tableau de bord
-  </div>
-  <div class="sidebar-link" onclick="navigate('chapters')">
-    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">menu_book</span>Chapitres
-  </div>
-  <div class="sidebar-link" onclick="navigate('quiz')">
-    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">speed</span>Quiz avancé
-  </div>
-  <div class="sidebar-link" onclick="navigate('glossary')">
-    <span class="material-symbols-outlined">psychology</span>Glossaire TM
-  </div>
-  <div class="sidebar-sep"></div>
-  <div class="sidebar-section-label">Chapitres</div>
-  <div class="sidebar-link" onclick="openChapter(1)">
-    <span class="material-symbols-outlined">manage_accounts</span>1. Management activités
-  </div>
-  <div class="sidebar-link" onclick="openChapter(2)">
-    <span class="material-symbols-outlined">analytics</span>2. Management produit
-  </div>
-  <div class="sidebar-link" onclick="openChapter(3)">
-    <span class="material-symbols-outlined">groups</span>3. Management équipe
-  </div>
-  <div class="sidebar-readiness">
-    <div class="sidebar-readiness-label">
-      <span class="material-symbols-outlined" style="font-size:0.875rem;font-variation-settings:'FILL' 1">verified</span>
-      Préparation examen
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="sidebarProgress" style="width:0%"></div>
-    </div>
-    <button class="sidebar-mock-btn" onclick="navigate('quiz')">Examen blanc TM</button>
-  </div>
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-
-  <!-- HOME -->
-  <div id="page-home" class="page active">
-    <div class="home-header">
-      <div class="level-badge">
-        <span class="material-symbols-outlined" style="font-size:0.875rem">workspace_premium</span>
-        ISTQB® Niveau Avancé — CTAL-TM v3.0
-      </div>
-      <h1>Management des Tests<br>Niveau Avancé</h1>
-      <p>Maîtrisez les compétences de pilotage, stratégie, risques et management d'équipe requis pour la certification ISTQB® Test Manager.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon blue"><span class="material-symbols-outlined">menu_book</span></div>
-        <div class="stat-value">3</div>
-        <div class="stat-label">Chapitres du syllabus</div>
-      </div>
-      <!-- <div class="stat-card">
-        <div class="stat-icon orange"><span class="material-symbols-outlined">timer</span></div>
-        <div class="stat-value">22.75h</div>
-        <div class="stat-label">Formation accréditée</div>
-      </div> -->
-      <div class="stat-card">
-        <div class="stat-icon green"><span class="material-symbols-outlined">quiz</span></div>
-        <div class="stat-value" id="statQuizDone">0</div>
-        <div class="stat-label">Questions répondues</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon purple"><span class="material-symbols-outlined">emoji_events</span></div>
-        <div class="stat-value" id="statScore">—</div>
-        <div class="stat-label">Meilleur score</div>
-      </div>
-    </div>
-
-    <div style="width:100%;max-width:54rem;margin-bottom:2rem;">
-      <div class="section-title">
-        <span class="material-symbols-outlined" style="color:var(--tertiary)">workspace_premium</span>
-        Objectifs métier (TM_01 – TM_11)
-      </div>
-      <div class="section-card" style="padding:1.5rem;">
-        <div class="bo-grid" id="boGrid"></div>
-      </div>
-    </div>
-
-    <div style="width:100%;max-width:54rem;">
-      <div class="section-title">
-        <span class="material-symbols-outlined" style="color:var(--primary)">layers</span>
-        Chapitres du syllabus
-      </div>
-      <div class="chapters-grid" id="homeChaptersGrid"></div>
-    </div>
-  </div>
-
-  <!-- CHAPTERS LIST -->
-  <div id="page-chapters" class="page" style="align-items:flex-start;padding-left:3rem;">
-    <div style="width:100%;max-width:54rem;">
-      <div class="tag" style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-surface-variant);margin-bottom:.5rem;">Syllabus ISTQB CTAL-TM v3.0</div>
-      <h1 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-.04em;margin-bottom:.5rem;">Tous les chapitres</h1>
-      <p style="color:var(--on-surface-variant);font-size:.875rem;margin-bottom:2rem;">Sélectionnez un chapitre pour commencer votre révision.</p>
-      <div id="chaptersListGrid" class="chapters-grid"></div>
-    </div>
-  </div>
-
-  <!-- CHAPTER DETAIL -->
-  <div id="page-chapter-detail" class="page" style="align-items:flex-start;padding-left:3rem;">
-    <div class="chapter-view" id="chapterDetailContent"></div>
-  </div>
-
-  <!-- QUIZ -->
-  <div id="page-quiz" class="page">
-    <div class="quiz-container" id="quizActive">
-      <div class="quiz-top">
-        <div class="quiz-top-left">
-          <div class="tag">ISTQB CTAL Test Manager</div>
-          <h1>Quiz — Niveau Avancé</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEMOTEST ISTQB</title>
+    <link rel="icon" href="./shared/favicon-48.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./shared/style.css" />
+  </head>
+  <body>
+    <!-- SELECTION PAGE -->
+    <div id="page-selection" class="page active" style="padding-top: 4rem">
+      <div class="home-header centered">
+        <div class="level-badge">
+          <span class="material-symbols-outlined" style="font-size: 0.875rem"
+            >apps</span
+          >
+          Plateforme de Certification
         </div>
-        <div class="quiz-timer">
-          <span class="material-symbols-outlined">timer</span>
-          <span id="timerDisplay">30:00</span>
+        <h1>Choisissez votre certification</h1>
+        <p>
+          Sélectionnez un syllabus dans votre bibliothèque ou importez-en un
+          nouveau.
+        </p>
+      </div>
+
+      <div
+        class="registry-grid"
+        id="registryGrid"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 1.5rem;
+          width: 100%;
+          max-width: 60rem;
+          margin: 2rem auto;
+        "
+      >
+        <!-- Cards will be injected here -->
+      </div>
+
+      <div
+        class="import-section"
+        id="dropZone"
+        style="
+          width: 100%;
+          max-width: 60rem;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: var(--surface-container-low);
+          border-radius: 2rem;
+          text-align: center;
+          border: 2px dashed var(--outline-variant);
+          transition: all 0.2s ease;
+        "
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem"
+          >upload_file</span
+        >
+        <h3>Importer un nouveau Syllabus PDF</h3>
+        <p style="color: var(--on-surface-variant); margin-bottom: 1.5rem">
+          Glissez votre fichier ici ou cliquez pour parcourir. L'IA s'occupe du
+          reste.
+        </p>
+        <form
+          id="uploadForm"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf"
+            style="display: none"
+            onchange="handleFileChange(this)"
+          />
+          <button
+            type="button"
+            class="btn-next"
+            onclick="document.getElementById('pdfFile').click()"
+            id="uploadBtn"
+          >
+            <span class="material-symbols-outlined">add</span> Sélectionner un
+            PDF
+          </button>
+          <div
+            id="uploadStatus"
+            style="margin-top: 1rem; font-weight: 600"
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" id="mainNav" style="display: none">
+      <div class="nav-inner">
+        <div
+          class="nav-brand"
+          style="cursor: pointer"
+          onclick="showSelection()"
+        >
+          MEMOTEST <span class="nav-badge">ISTQB</span>
         </div>
-      </div>
-      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressBar" style="width:8.33%"></div></div>
-      <div class="quiz-meta">
-        <span class="quiz-badge" id="quizBadge">Question 1 sur 12</span>
-        <div class="quiz-dots" id="quizDots"></div>
-      </div>
-      <div class="quiz-card">
-        <p class="quiz-question" id="quizQuestion">Chargement…</p>
-        <div class="quiz-options" id="quizOptions"></div>
-        <div class="quiz-explanation" id="quizExplanation"></div>
-      </div>
-      <div class="quiz-actions">
-        <button class="btn-flag"><span class="material-symbols-outlined">flag</span> Marquer</button>
-        <div style="display:flex;gap:.75rem;">
-          <button class="btn-validate" id="btnValidate" onclick="validateAnswer()">Valider</button>
-          <button class="btn-next" id="btnNext" onclick="nextQuestion()">
-            Suivant <span class="material-symbols-outlined">arrow_forward</span>
+        <div class="nav-actions-desktop" style="margin-left: auto; margin-right: 1.5rem;">
+          <button class="btn-secondary" onclick="showSelection()">
+            <span class="material-symbols-outlined" style="font-size: 1rem;">logout</span>
+            Quitter
           </button>
         </div>
+        <div class="nav-links">
+          <a href="#" class="active" onclick="navigate('home', this)">
+            <span class="material-symbols-outlined nav-icon">home</span>
+            <span>Accueil</span>
+          </a>
+          <a href="#" onclick="navigate('chapters', this)">
+            <span class="material-symbols-outlined nav-icon">menu_book</span>
+            <span>Chapitres</span>
+          </a>
+          <a href="#" onclick="navigate('quiz', this)">
+            <span class="material-symbols-outlined nav-icon">speed</span>
+            <span>Quiz</span>
+          </a>
+          <a href="#" onclick="navigate('glossary', this)">
+            <span class="material-symbols-outlined nav-icon">psychology</span>
+            <span>Glossaire</span>
+          </a>
+          <a href="#" onclick="showSelection()" class="nav-change-btn">
+            <span class="material-symbols-outlined nav-icon">swap_horiz</span>
+            <span>Changer</span>
+          </a>
+        </div>
       </div>
-      <div class="quiz-info-row">
-        <div class="quiz-alert">
-          <div class="icon-wrap"><span class="material-symbols-outlined">lightbulb</span></div>
-          <div>
-            <h3>Conseil examen</h3>
-            <p id="quizTip">Les questions de niveau avancé exigent une analyse de situation.</p>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="mainSidebar" style="display: none">
+      <div class="sidebar-heading">
+        <h2 id="sbShort">ISTQB</h2>
+        <p id="sbFull">Loading...</p>
+      </div>
+      <div class="sidebar-link active" onclick="navigate('home')">
+        <span class="material-symbols-outlined">home</span>Tableau de bord
+      </div>
+      <div class="sidebar-link" onclick="navigate('chapters')">
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >menu_book</span
+        >Chapitres
+      </div>
+      <div class="sidebar-link" onclick="navigate('quiz')">
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >speed</span
+        >Quiz
+      </div>
+      <div class="sidebar-link" onclick="navigate('glossary')">
+        <span class="material-symbols-outlined">psychology</span>Glossaire
+      </div>
+      <div class="sidebar-sep"></div>
+      <div class="sidebar-section-label">Chapitres</div>
+      <div id="sidebarChapters"></div>
+
+      <div class="sidebar-readiness">
+        <div class="sidebar-readiness-label">
+          <span
+            class="material-symbols-outlined"
+            style="
+              font-size: 0.875rem;
+              font-variation-settings: &quot;FILL&quot; 1;
+            "
+            >verified</span
+          >
+          Préparation examen
+        </div>
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            id="sidebarProgress"
+            style="width: 0%"
+          ></div>
+        </div>
+        <button class="sidebar-mock-btn" onclick="navigate('quiz')">
+          Examen blanc
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main" id="mainContent" style="display: none">
+      <!-- HOME -->
+      <div id="page-home" class="page active">
+        <div class="home-header">
+          <div class="tag" id="mainDesc">
+            <span
+              class="material-symbols-outlined"
+              style="font-size: 0.875rem; margin-right: 0.4rem"
+              >emoji_events</span
+            >
+            Chargement...
+          </div>
+          <h1 id="mainTitle">Bienvenue</h1>
+          <p id="mainLongDesc">
+            Sélectionnez une certification ou patientez pendant le chargement.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <span class="material-symbols-outlined">menu_book</span>
+            </div>
+            <div class="stat-value" id="statChapters">0</div>
+            <div class="stat-label">Chapitres du syllabus</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <span class="material-symbols-outlined">quiz</span>
+            </div>
+            <div class="stat-value" id="statQuizDone">0</div>
+            <div class="stat-label">Questions répondues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <span class="material-symbols-outlined">emoji_events</span>
+            </div>
+            <div class="stat-value" id="statScore">—</div>
+            <div class="stat-label">Meilleur score</div>
           </div>
         </div>
-        <div class="quiz-session">
-          <div class="quiz-session-progress">
-            <div class="circular-progress">
-              <svg viewBox="0 0 48 48">
-                <circle class="track" cx="24" cy="24" r="18" stroke-width="5"/>
-                <circle class="fill" id="sessionFillCircle" cx="24" cy="24" r="18" stroke-width="5" stroke-dasharray="113.1" stroke-dashoffset="113.1"/>
-              </svg>
-              <div class="lbl" id="sessionLbl">0/12</div>
+
+        <div style="width: 100%; max-width: 54rem; margin-bottom: 2rem">
+          <div class="section-title">
+            <span
+              class="material-symbols-outlined"
+              style="color: var(--tertiary)"
+              >workspace_premium</span
+            >
+            Objectifs métier
+          </div>
+          <div class="section-card" style="padding: 1.5rem">
+            <div class="bo-grid" id="boGrid"></div>
+          </div>
+        </div>
+
+        <div style="width: 100%; max-width: 54rem">
+          <div class="section-title">
+            <span
+              class="material-symbols-outlined"
+              style="color: var(--primary)"
+              >layers</span
+            >
+            Chapitres du syllabus
+          </div>
+          <div class="chapters-grid" id="homeChaptersGrid"></div>
+        </div>
+      </div>
+
+      <!-- CHAPTERS LIST -->
+      <div id="page-chapters" class="page">
+        <div style="width: 100%; max-width: 54rem">
+          <div
+            id="syllabusTag"
+            class="tag"
+            style="
+              font-size: 0.65rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--on-surface-variant);
+              margin-bottom: 0.5rem;
+            "
+          >
+            Syllabus ISTQB
+          </div>
+          <h1
+            style="
+              font-family: &quot;Manrope&quot;, sans-serif;
+              font-weight: 900;
+              font-size: 2rem;
+              letter-spacing: -0.04em;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Tous les chapitres
+          </h1>
+          <p
+            style="
+              color: var(--on-surface-variant);
+              font-size: 0.875rem;
+              margin-bottom: 2rem;
+            "
+          >
+            Sélectionnez un chapitre pour commencer votre révision.
+          </p>
+          <div id="chaptersListGrid" class="chapters-grid"></div>
+        </div>
+      </div>
+
+      <!-- CHAPTER DETAIL -->
+      <div id="page-chapter-detail" class="page">
+        <div class="chapter-view" id="chapterDetailContent"></div>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="page-quiz" class="page">
+        <div class="quiz-container" id="quizActive">
+          <div class="quiz-top" style="width: 100%">
+            <div class="quiz-top-left">
+              <div class="tag">ISTQB Certification</div>
+              <h1 id="quizTitle">Quiz</h1>
             </div>
-            <div class="quiz-session-info">
-              <h3>Progression session</h3>
-              <p id="sessionMsg">Bonne chance !</p>
+            <div class="quiz-timer">
+              <span class="material-symbols-outlined">timer</span>
+              <span id="timerDisplay">30:00</span>
             </div>
           </div>
-          <button class="btn-link">Détails</button>
+          <div class="quiz-progress-bar">
+            <div
+              class="quiz-progress-fill"
+              id="quizProgressBar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="quiz-meta" style="width: 100%">
+            <span class="quiz-badge" id="quizBadge">Chargement...</span>
+            <div class="quiz-dots" id="quizDots"></div>
+          </div>
+          <div class="quiz-card" style="width: 100%">
+            <p class="quiz-question" id="quizQuestion">Chargement…</p>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-explanation" id="quizExplanation"></div>
+          </div>
+          <div class="quiz-actions" style="width: 100%">
+            <button class="btn-flag">
+              <span class="material-symbols-outlined">flag</span> Marquer
+            </button>
+            <div style="display: flex; gap: 0.75rem">
+              <button
+                class="btn-validate"
+                id="btnValidate"
+                onclick="validateAnswer()"
+              >
+                Valider
+              </button>
+              <button class="btn-next" id="btnNext" onclick="nextQuestion()">
+                Suivant
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+          <div class="quiz-info-row" style="width: 100%">
+            <div class="quiz-alert">
+              <div class="icon-wrap">
+                <span class="material-symbols-outlined">lightbulb</span>
+              </div>
+              <div>
+                <h3>Conseil examen</h3>
+                <p id="quizTip">Préparez-vous bien.</p>
+              </div>
+            </div>
+            <div class="quiz-session">
+              <div class="quiz-session-progress">
+                <div class="circular-progress">
+                  <svg viewBox="0 0 48 48">
+                    <circle
+                      class="track"
+                      cx="24"
+                      cy="24"
+                      r="18"
+                      stroke-width="5"
+                    />
+                    <circle
+                      class="fill"
+                      id="sessionFillCircle"
+                      cx="24"
+                      cy="24"
+                      r="18"
+                      stroke-width="5"
+                      stroke-dasharray="113.1"
+                      stroke-dashoffset="113.1"
+                    />
+                  </svg>
+                  <div class="lbl" id="sessionLbl">0/0</div>
+                </div>
+                <div class="quiz-session-info">
+                  <h3>Progression session</h3>
+                  <p id="sessionMsg">Bonne chance !</p>
+                </div>
+              </div>
+              <button class="btn-link">Détails</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-result" id="quizResult" style="display: none">
+          <div class="result-score-ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="track" cx="60" cy="60" r="50" />
+              <circle
+                class="fill"
+                id="resultRingFill"
+                cx="60"
+                cy="60"
+                r="50"
+                stroke-dasharray="314.16"
+                stroke-dashoffset="314.16"
+              />
+            </svg>
+            <div class="result-score-lbl">
+              <div class="pct" id="resultPct">0%</div>
+              <div class="sub">Score</div>
+            </div>
+          </div>
+          <h2 class="result-title" id="resultTitle">Quiz terminé !</h2>
+          <p class="result-sub" id="resultSub">Voici vos résultats.</p>
+          <div class="result-stats">
+            <div class="result-stat green">
+              <div class="val" id="resultCorrect">0</div>
+              <div class="lbl">Correctes</div>
+            </div>
+            <div class="result-stat red">
+              <div class="val" id="resultWrong">0</div>
+              <div class="lbl">Incorrectes</div>
+            </div>
+            <div class="result-stat">
+              <div class="val" id="resultTime">0:00</div>
+              <div class="lbl">Temps</div>
+            </div>
+          </div>
+          <div class="result-actions">
+            <button class="btn-secondary" onclick="restartQuiz()">
+              <span class="material-symbols-outlined">refresh</span> Recommencer
+            </button>
+            <button class="btn-next" onclick="navigate('home')">
+              Accueil <span class="material-symbols-outlined">home</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="quiz-result" id="quizResult">
-      <div class="result-score-ring">
-        <svg viewBox="0 0 120 120">
-          <circle class="track" cx="60" cy="60" r="50"/>
-          <circle class="fill" id="resultRingFill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
-        </svg>
-        <div class="result-score-lbl">
-          <div class="pct" id="resultPct">0%</div>
-          <div class="sub">Score</div>
+      <!-- GLOSSARY -->
+      <div id="page-glossary" class="page">
+        <div class="glossary-container">
+          <div
+            class="tag"
+            style="
+              font-size: 0.65rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--on-surface-variant);
+              margin-bottom: 0.5rem;
+            "
+          >
+            Glossaire dynamique
+          </div>
+          <h1
+            style="
+              font-family: &quot;Manrope&quot;, sans-serif;
+              font-weight: 900;
+              font-size: 2rem;
+              letter-spacing: -0.04em;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Glossaire
+          </h1>
+          <p
+            style="
+              color: var(--on-surface-variant);
+              font-size: 0.875rem;
+              margin-bottom: 2rem;
+            "
+          >
+            Tous les termes clés du syllabus.
+          </p>
+          <div class="glossary-search">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input
+              type="text"
+              id="glossarySearch"
+              placeholder="Rechercher un terme…"
+              oninput="filterGlossary(this.value)"
+            />
+          </div>
+          <div id="glossaryContent"></div>
         </div>
       </div>
-      <h2 class="result-title" id="resultTitle">Quiz terminé !</h2>
-      <p class="result-sub" id="resultSub">Voici vos résultats.</p>
-      <div class="result-stats">
-        <div class="result-stat green"><div class="val" id="resultCorrect">0</div><div class="lbl">Correctes</div></div>
-        <div class="result-stat red"><div class="val" id="resultWrong">0</div><div class="lbl">Incorrectes</div></div>
-        <div class="result-stat"><div class="val" id="resultTime">0:00</div><div class="lbl">Temps</div></div>
-      </div>
-      <div class="result-actions">
-        <button class="btn-secondary" onclick="restartQuiz()"><span class="material-symbols-outlined">refresh</span> Recommencer</button>
-        <button class="btn-next" onclick="navigate('home')">Accueil <span class="material-symbols-outlined">home</span></button>
-      </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- GLOSSARY -->
-  <div id="page-glossary" class="page" style="align-items:flex-start;padding-left:3rem;">
-    <div class="glossary-container">
-      <div class="tag" style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-surface-variant);margin-bottom:.5rem;">Vocabulaire Test Manager</div>
-      <h1 style="font-family:'Manrope',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-.04em;margin-bottom:.5rem;">Glossaire</h1>
-      <p style="color:var(--on-surface-variant);font-size:.875rem;margin-bottom:2rem;">Tous les termes clés du syllabus ISTQB CTAL-TM v3.0.</p>
-      <div class="glossary-search">
-        <span class="material-symbols-outlined search-icon">search</span>
-        <input type="text" id="glossarySearch" placeholder="Rechercher un terme…" oninput="filterGlossary(this.value)"/>
+    <footer class="footer">
+      <div class="footer-brand">MEMOTEST v2</div>
+      <div class="footer-copy">Plateforme de révision des certifications ISTQB®</div>
+    </footer>
+
+    <script src="./shared/engine.js"></script>
+    <script>
+      // Global functions for logic
+      async function loadRegistry() {
+        try {
+          const res = await fetch('/api/registry');
+          let registry = await res.json();
+          
+          // Tri : Foundation en premier, puis le reste par ordre alphabétique de titre
+          registry.sort((a, b) => {
+            if (a.id === 'foundation') return -1;
+            if (b.id === 'foundation') return 1;
+            return a.title.localeCompare(b.title);
+          });
+          
+          renderRegistry(registry);
+        } catch (e) {
+          console.error("Registry load failed", e);
+          // Fallback manual registry if server not available
+          const fallback = [
+            {
+              id: "genai",
+              title: "GenAI",
+              icon: "auto_awesome",
+              description: "IA Générative",
+              path: "data/genai.json",
+            },
+            {
+              id: "manager",
+              title: "Manager",
+              icon: "shield_person",
+              description: "Advanced Test Manager",
+              path: "data/manager.json",
+            },
+            {
+              id: "foundation",
+              title: "Foundation",
+              icon: "menu_book",
+              description: "FL v4.0",
+              path: "data/foundation.json",
+            },
+          ];
+          renderRegistry(fallback);
+        }
+      }
+
+      function renderRegistry(registry) {
+        const grid = document.getElementById("registryGrid");
+        grid.innerHTML = registry
+          .map(
+            (c) => `
+      <div class="chapter-card" style="padding: 2rem; cursor: pointer;" onclick="selectCert('${c.id}')">
+        <div class="chapter-num" style="background: var(--primary-container); color: var(--on-primary-container);">
+          <span class="material-symbols-outlined">${c.icon}</span>
+        </div>
+        <div class="chapter-info">
+          <h3>${c.title}</h3>
+          <p>${c.description}</p>
+        </div>
+        <button class="chapter-btn"><span class="material-symbols-outlined">arrow_forward</span></button>
       </div>
-      <div id="glossaryContent"></div>
-    </div>
-  </div>
+    `,
+          )
+          .join("");
+      }
 
-</main>
+      async function selectCert(id) {
+        document.getElementById("page-selection").classList.remove("active");
+        document.getElementById("mainNav").style.display = "block";
+        document.getElementById("mainSidebar").style.display = "flex";
+        document.getElementById("mainContent").style.display = "flex";
 
-<footer class="footer">
-  <div class="footer-brand">MEMOTEST ISTQB Test Manager</div>
-  <!-- <div class="footer-links">
-    <a href="#">Politique de confidentialité</a>
-    <a href="#">Conditions d'utilisation</a>
-    <a href="#">Centre d'aide</a>
-  </div> -->
-  <div class="footer-copy">Le contenu de ce site a été généré à partir du syllabus officiel à l'aide de l'IA, si vous constatez une erreur, contactez-moi : daphne.herve@gmail.com</div>
-</footer>
-<script src="./script.js"></script>
-</body>
+        await initEngine(`./data/${id}.json`);
+
+        const sbChapters = document.getElementById("sidebarChapters");
+        sbChapters.innerHTML = chapters
+          .map(
+            (ch) => `
+      <div class="sidebar-link" onclick="openChapter(${ch.id})" title="${ch.title}">
+        <span class="material-symbols-outlined">${ch.icon || "menu_book"}</span>
+        <span class="sidebar-text">${ch.id}. ${ch.title}</span>
+      </div>
+    `,
+          )
+          .join("");
+
+        window.history.pushState({}, "", `?cert=${id}`);
+        renderHome();
+      }
+
+      function showSelection() {
+        document.getElementById("page-selection").classList.add("active");
+        document.getElementById("mainNav").style.display = "none";
+        document.getElementById("mainSidebar").style.display = "none";
+        document.getElementById("mainContent").style.display = "none";
+        window.history.pushState({}, "", "/");
+      }
+
+      async function handleFileChange(input, droppedFile) {
+        const file = droppedFile || (input.files ? input.files[0] : null);
+        if (!file) return;
+
+        const status = document.getElementById("uploadStatus");
+        const btn = document.getElementById("uploadBtn");
+
+        status.innerHTML = `
+      <div style="display:flex; flex-direction:column; align-items:center; gap:1rem; margin-top:1.5rem;">
+        <div class="spinner"></div>
+        <span style="color:var(--primary); font-weight:600;">Analyse du syllabus en cours...</span>
+        <span style="color:var(--on-surface-variant); font-size:0.85rem; text-align:center;">
+          Extraction des chapitres et génération des quiz.<br>
+          <strong style="color:var(--tertiary)">⚠️ Merci de ne pas fermer cette fenêtre (30-60s).</strong>
+        </span>
+      </div>
+    `;
+        btn.disabled = true;
+
+        const formData = new FormData();
+        formData.append("syllabus", file);
+
+        try {
+          const res = await fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+          });
+          const result = await res.json();
+          if (result.success) {
+            status.innerHTML = `<div style="margin-top:1.5rem;"><span style="color:var(--success); font-weight:700;">✅ ${result.message}</span></div>`;
+            setTimeout(() => {
+              loadRegistry();
+              selectCert(result.id);
+            }, 2000);
+          } else {
+            status.innerHTML = `<div style="margin-top:1.5rem;"><span style="color:var(--error); font-weight:700;">❌ Erreur: ${result.error}</span></div>`;
+          }
+        } catch (e) {
+          status.innerHTML = `<div style="margin-top:1.5rem;"><span style="color:var(--error); font-weight:700;">❌ Erreur de connexion au serveur.</span></div>`;
+        } finally {
+          btn.disabled = false;
+        }
+      }
+
+      // Drag & Drop event handling
+      const dropZone = document.getElementById("dropZone");
+      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+        dropZone.addEventListener(
+          eventName,
+          (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          },
+          false,
+        );
+      });
+
+      ["dragenter", "dragover"].forEach((eventName) => {
+        dropZone.addEventListener(
+          eventName,
+          () => {
+            dropZone.style.borderColor = "var(--primary)";
+            dropZone.style.background = "var(--primary-fixed)";
+          },
+          false,
+        );
+      });
+
+      ["dragleave", "drop"].forEach((eventName) => {
+        dropZone.addEventListener(
+          eventName,
+          () => {
+            dropZone.style.borderColor = "var(--outline-variant)";
+            dropZone.style.background = "var(--surface-container-low)";
+          },
+          false,
+        );
+      });
+
+      dropZone.addEventListener(
+        "drop",
+        (e) => {
+          const dt = e.dataTransfer;
+          const file = dt.files[0];
+          handleFileChange(null, file);
+        },
+        false,
+      );
+
+      window.addEventListener("DOMContentLoaded", () => {
+        loadRegistry();
+        const params = new URLSearchParams(window.location.search);
+        const cert = params.get("cert");
+        if (cert) {
+          selectCert(cert);
+        }
+      });
+    </script>
+  </body>
 </html>
