@@ -49,7 +49,7 @@ Ce projet est une évolution majeure du fork original de [Daphné Hervé](https:
 
 ## 🛠️ Architecture
 
-- **Frontend** : Vanille JS / HTML5 / CSS3 (Variables CSS, Grid, Flexbox).
+- **Frontend** : Vanilla JS / HTML5 / CSS3 (Variables CSS, Grid, Flexbox).
 - **Backend** : Node.js / Express.
 - **Moteur IA** : Google Generative AI (Gemini 2.5) pour le parsing de documents.
 - **Données** : JSON pour la persistance locale du registre et des syllabus.
