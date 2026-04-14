@@ -22,7 +22,7 @@ Ce projet est une évolution majeure du fork original de [Daphné Hervé](https:
 1. **Cloner le projet** :
 
    ```bash
-   git clone https://github.com/votre-username/MemoTest-ISTQB.git
+   git clone https://github.com/MehdiChennoufi/MemoTest-ISTQB.git
    cd MemoTest-ISTQB
    ```
 
